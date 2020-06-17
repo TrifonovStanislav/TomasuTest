@@ -27,7 +27,7 @@
             x:Name="comboBox1" 
             ItemsSource="{Binding Path=Functions}" 
             SelectedItem="{Binding Path=SelectedFunction,Mode=TwoWay}"              
-            SelectionChanged="comboBox1_SelectionChanged"
+            SelectionChanged="comboBoxes_SelectionChanged"
             Margin="5">
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
@@ -41,8 +41,8 @@
             <TextBox 
             x:Name="textBoxA" 
             Text="{Binding Path=SelectedFunction.ValueA, Mode=TwoWay}"             
-            PreviewTextInput="textBoxA_PreviewTextInput"             
-            TextChanged="textBoxA_TextChanged"
+            PreviewTextInput="textBoxes_PreviewTextInput"             
+            TextChanged="textBoxes_TextChanged"
             Margin="5"/>
             <Label 
             x:Name="label3"
@@ -50,8 +50,8 @@
             <TextBox 
             x:Name="textBoxB" 
             Text="{Binding Path=SelectedFunction.ValueB, Mode=TwoWay}"             
-            PreviewTextInput="textBoxB_PreviewTextInput"             
-            TextChanged="textBoxB_TextChanged"
+            PreviewTextInput="textBoxes_PreviewTextInput"             
+            TextChanged="textBoxes_TextChanged"
             Margin="5"/>
             <Label 
             x:Name="label4"
@@ -60,7 +60,7 @@
                 x:Name="comboBox2" 
                 ItemsSource="{Binding Path=SelectedFunction.ItemsC}" 
                 SelectedIndex="{Binding Path=SelectedFunction.ValueCIndex,Mode=TwoWay}" 
-                SelectionChanged="comboBox2_SelectionChanged" 
+                SelectionChanged="comboBoxes_SelectionChanged" 
                 Margin="5"/>
         </UniformGrid>
         
@@ -91,14 +91,19 @@
                 <TextBlock x:Name="resultTb" Text="0" Margin="5" TextAlignment="Center" VerticalAlignment="Center"/>
                 </Border>
                 <Border BorderThickness="1,1,0,2" BorderBrush="Black" Grid.Column="1" Grid.Row="1">
-                <TextBox Name="tbX" Text="{Binding Path=SelectedFunction.ValueX, Mode=TwoWay}" Margin="5" TextAlignment="Center" VerticalAlignment="Center" Grid.Column="1" Grid.Row="1" PreviewTextInput="tbX_PreviewTextInput" TextChanged="tbX_TextChanged" />
+                <TextBox Name="tbX" 
+                         Text="{Binding Path=SelectedFunction.ValueX, Mode=TwoWay}"
+                         Margin="5" TextAlignment="Center" VerticalAlignment="Center" 
+                         Grid.Column="1" Grid.Row="1" PreviewTextInput="textBoxes_PreviewTextInput" 
+                         TextChanged="textBoxes_TextChanged" />
                 </Border>
                 <Border BorderThickness="1,1,2,2" BorderBrush="Black" Grid.Column="2" Grid.Row="1">
-                    <TextBox Name="tbY" Text="{Binding Path=SelectedFunction.ValueY, Mode=TwoWay}" Margin="5" TextAlignment="Center" VerticalAlignment="Center" Grid.Column="2" Grid.Row="1" PreviewTextInput="tbY_PreviewTextInput" TextChanged="tbY_TextChanged" />
+                    <TextBox Name="tbY" 
+                             Text="{Binding Path=SelectedFunction.ValueY, Mode=TwoWay}" Margin="5" 
+                             TextAlignment="Center" VerticalAlignment="Center" Grid.Column="2" Grid.Row="1"
+                             PreviewTextInput="textBoxes_PreviewTextInput" TextChanged="textBoxes_TextChanged" />
                 </Border>
             </Grid>
         
-
-
     </Grid>
 </Window>
