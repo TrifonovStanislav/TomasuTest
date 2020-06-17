@@ -29,7 +29,7 @@ namespace WpfApplication1
             
         }
 
-        private double calcFunc()
+        private void calcFunc()
         {
             double result = 0;
             try
@@ -60,66 +60,28 @@ namespace WpfApplication1
             }
             catch(System.FormatException)
             {
-                return result;
+                resultTb.Text = result.ToString();
             }
-            return result;
+            resultTb.Text = result.ToString();
+            
         }
 
-        private void textBoxA_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        private void textBoxes_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
             Regex regex = new Regex("[^0-9]+");
             e.Handled = regex.IsMatch(e.Text); 
-        }
+        } 
         
-        private void textBoxB_PreviewTextInput(object sender, TextCompositionEventArgs e)
+
+        private void comboBoxes_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Regex regex = new Regex("[^0-9]+");
-            e.Handled = regex.IsMatch(e.Text);
-        }
+            calcFunc();
+        }                      
 
-        private void tbX_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        private void textBoxes_TextChanged(object sender, TextChangedEventArgs e)
         {
-            Regex regex = new Regex("[^0-9]+");
-            e.Handled = regex.IsMatch(e.Text);
-        }
-
-        private void tbY_PreviewTextInput(object sender, TextCompositionEventArgs e)
-        {
-            Regex regex = new Regex("[^0-9]+");
-            e.Handled = regex.IsMatch(e.Text);
-        }
-
-        private void comboBox1_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            resultTb.Text = calcFunc().ToString();
-
-        }
-
-        private void comboBox2_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            resultTb.Text = calcFunc().ToString();
-        }               
-
-        private void textBoxA_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            resultTb.Text = calcFunc().ToString();
-        }
-
-        private void textBoxB_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            resultTb.Text = calcFunc().ToString();
-        }
-
-        private void tbX_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            resultTb.Text = calcFunc().ToString();
-        }
-
-        private void tbY_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            resultTb.Text = calcFunc().ToString();
-        }
-
+            calcFunc();
+        }  
         
     }
 }
